@@ -3,14 +3,10 @@ const mongoose = require('mongoose');
 
 const gameSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    player1: { 
-        email: { type: String, required: true },
-        nickname: { type: String, required: true },
-    },
-    player1: { 
-        email: { type: String, required: true },
-        nickname: { type: String, required: true },
-    },
+    player1: String,
+    player2: String,
+    boardWidth: { type: Number, required: true },
+    boardHeight: { type: Number, required: true },
     state: { type: String, required: true }
 });
 
