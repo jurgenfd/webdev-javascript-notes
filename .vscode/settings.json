@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bb5cc8e2-2ec7-4216-928e-156bbc146ba3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/avans-webdev-zeeslag",
+    "appService.deploySubpath": "zeeslag-api"
+}
