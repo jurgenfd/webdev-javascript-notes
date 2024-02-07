@@ -4,13 +4,30 @@ var mongoose = require('mongoose');
 
 const Game = mongoose.model('Game');
 
+function gameToResponse(game)
+{
+    return {
+        id: game._id,
+        player1: game.player1,
+        player2: game.player2,
+        boardWidth: game.boardWidth,
+        boardHeight: game.boardHeight,
+        state: game.state,
+        player1Shots: game.player1Shots,
+        player2Shots: game.player2Shots,
+        currentPlayer: game.currentPlayer,
+        player1board: game.player1board != null,
+        player2board: game.player2board != null,
+    }
+}
+
 /* GET home page. */
 router.get('/game', function(req, res, next) {
     //list all games
     Game.find()
         .exec()
         .then(docs => {
-            console.log(docs);
+            docs = docs.map(doc => gameToResponse(doc));
             res.status(200).json(docs);
         })
         .catch(err => {
@@ -18,6 +35,22 @@ router.get('/game', function(req, res, next) {
             res.status(500).json({ error: err });
         });
 });
+
+/* GET home page. */
+router.get('/game/:id', function(req, res, next) {
+    //list all games
+    Game.findOne({ _id: req.params.id})
+        .exec()
+        .then(game => {
+            game = gameToResponse(game);
+            res.status(200).json(game);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+        });
+});
+
 
 router.post('/game', async function(req, res, next) {
 
@@ -69,7 +102,9 @@ router.get('/player/:username/game', async function(req, res, next) {
     const username = req.params.username.toLowerCase();
 
     //find all games where player1 or player2 is username
-    const games = await Game.find({ $or: [{ player1: username }, { player2: username }] });
+    let games = await Game.find({ $or: [{ player1: username }, { player2: username }] });
+
+    games = games.map(doc => gameToResponse(doc));
 
     res.status(200).json(games);
 })
@@ -90,9 +125,10 @@ router.post('/game/:gameId/players', async function(req, res, next) {
         return res.status(404).json({ message: 'game not found' });
     }
 
+
     if (game.player1 == player2 || game.state !== 'waiting')
     {
-        return res.status(404).json({ message: 'Cannot join this game' });
+        return res.status(400).json({ message: 'Cannot join this game' });
     }
 
     game.player2 = player2;
@@ -102,6 +138,6 @@ router.post('/game/:gameId/players', async function(req, res, next) {
     res.status(200).json(result);
 })
 
-router.post
+
 
 module.exports = router;

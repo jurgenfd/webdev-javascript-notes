@@ -10,6 +10,7 @@ require('./model/game');
 
 var indexRouter = require('./routes/index');
 var gameRouter = require('./routes/game');
+var actionsRouter = require('./routes/actions');
 
 var app = express();
 
@@ -30,7 +31,7 @@ app.use('/', indexRouter);
 //add api routers
 //prefix inside router
 app.use('/', gameRouter);
-
+app.use('/', actionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
