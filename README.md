@@ -17,8 +17,8 @@ Om te kijken wat jullie 'skills' zijn voor we gaan beginnen een mini opdracht om
 
 De opdracht: Maak een JS Fiddle met daar in een doosje en als je op dit doosje klikt veranderd hij van kleur. 
 
-Level 1. Het doosje veranderd 1x van kleur (via Javscript) :baby: <br>
-Level 2. Het doosje veranderd elke keer als je er op klikt van kleur. :scream_cat: <br>
+Level 1. Het doosje verandert 1x van kleur (via Javscript) :baby: <br>
+Level 2. Het doosje verandert elke keer als je er op klikt van kleur. :scream_cat: <br>
 Level 3. Je kan meerdere doosjes maken die allemaal appart van kleur kunnen veranderen. :heart_eyes_cat:
 
 Je kan deze JSFiddle gebruiken als startpunt: https://jsfiddle.net/Linksonder/btaw80dh/2/
