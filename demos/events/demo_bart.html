@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="cell">A</div>
+    <div class="cell">B</div>
+    <div class="cell">C</div>
+
+
+    <script>
+
+
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => {
+            cell.addEventListener('click', (event) => {
+                console.log(event.target);
+                console.log('clicked!')
+            });
+        });
+    </script>
+</body>
+
+</html>

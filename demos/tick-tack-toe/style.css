@@ -1,0 +1,35 @@
+/** HIER DE STYLING TOEVOEGEN ZOALS DE HOOGTE EN BREEDTE **/
+
+.cell {
+    aspect-ratio: 1 / 1; /** BOB!!! **/
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+/** Example flexbox ***/
+/* .row {
+    display: flex;
+    flex-direction: row;
+} */
+
+/** 2 Variables, rows and columns **/
+/* --nr-of-rows: 3;
+--nr-of-columns: 3; */
+
+/** Example CSS Grid **/
+.board {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width:100%;
+}
+
+.drag-element {
+    padding:20px;
+    border:2px solid black;
+    font-size:200%;
+    display: inline-block;
+}
