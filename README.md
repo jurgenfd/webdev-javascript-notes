@@ -2,6 +2,21 @@
 
 Notes and demo's (and api)
 
+## Planning
+
+Week 3
+
+- Basis Javascript
+- Dom manipulatie
+- Events
+- Klassen, functies en objecten
+- Eindopdracht
+
+Week 4
+- Overerving
+- prototype
+- custom components
+
 ## Voorbereiding :pencil:
 
 - [ ] Lees Javascript.Info [Introduction](https://javascript.info/getting-started)
