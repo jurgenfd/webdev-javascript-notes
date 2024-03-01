@@ -80,6 +80,12 @@ router.post('/game/:id/board/:username', async function(req, res, next) {
         return res.status(400).json({ message: 'User not in game' });
     }
 
+    //copy board if player 2 is ai
+    if(game.player2 == 'AI')
+    {
+        game.player2board = req.body.board;
+    }
+
     //check if both boards are set
     if(game.player1board && game.player2board)
     {
@@ -87,6 +93,12 @@ router.post('/game/:id/board/:username', async function(req, res, next) {
 
         //random player 1 or player 2
         game.currentPlayer = Math.random() < 0.5 ? game.player1 : game.player2;
+
+        //if opponent is AI, make player 1 the current player
+        if(game.player2 == 'AI')
+        {
+            game.currentPlayer = game.player1;
+        }
     }
 
     result = await game.save();
@@ -172,6 +184,7 @@ router.post('/game/:id/player/:username/shot', async function(req, res, next) {
         return res.status(400).json({ message: 'User not in game' });
     }    
 
+
     let board = game.player1 == username ? game.player2board : game.player1board;
 
     let lastShotHit = false;
@@ -204,6 +217,15 @@ router.post('/game/:id/player/:username/shot', async function(req, res, next) {
     else
     {
         game.currentPlayer = game.currentPlayer === game.player1 ? game.player2 : game.player1;
+
+        //if player 2 is AI, make a random shot
+        if(game.currentPlayer == 'AI' )
+        {
+            //for now AI always shoots in 0,0
+            let shot  = { x: 0, y: 0 };
+            game.player2Shots.push(shot);
+            game.currentPlayer = game.player1;
+        }
     }
 
     result = await game.save();
@@ -212,6 +234,8 @@ router.post('/game/:id/player/:username/shot', async function(req, res, next) {
 
 
 });
+
+
 
 
 module.exports = router;
