@@ -1,5 +1,10 @@
 # ZEESLAG-API
 
+Welcome to the zeeslag API! This is a simple API that allows you to play multiplayer games. 
+
+- Online endpoint: avans-webdev-zeeslag.azurewebsites.net
+- Example app: See folder zeeslag-client
+
 ### Game States
 
 #### 1. Waiting
@@ -30,22 +35,6 @@ The game is finished and no actions can be taken.
 
 <details>
  <summary><code>GET</code> <code><b>/</b></code> <code>returns HTML page with api docs</code></summary>
-
-##### Parameters
-
-> | name      |  type     | data type               | description                                                           |
-> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-
-##### Responses
-
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `400`         | `html`                            | `{"code":"400","message":"Bad Request"}`                            |
-
-##### Example body
-
-None
-
 </details>
 
 #### GAMES
@@ -94,7 +83,7 @@ None
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/game/</b></code> <code>Create a new game with you as player 1</code></summary>
+ <summary><code>POST</code> <code><b>/game</b></code> <code>Create a new game with you as player 1</code></summary>
 
 ##### Parameters
 
@@ -123,21 +112,22 @@ None
 
 
 <details>
- <summary><code>DELETE</code> <code><b>/game{id}</b></code> <code>Delete one of your games</code></summary>
+ <summary><code>DELETE</code> <code><b>/game/:id</b></code> <code>Delete one of your games</code></summary>
 </details>
 
 <details>
- <summary><code>GET</code> <code><b>/player/{email}/games</b></code> <code>A list of all games owned by user with email</code></summary>
+ <summary><code>GET</code> <code><b>/player/:username/game</b></code> <code>A list of all games owned by user with username</code></summary>
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/player/join</b></code> <code>Attempt to join a game that already excists</code></summary>
+ <summary><code>POST</code> <code><b>/game/:id/join/:username</b></code> <code>Attempt to join a game that already excists</code></summary>
 
 ##### Parameters
 
 > | name      |  type     | data type               | description                                                           |
 > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-> |  player2  |  required | string                  | Your username as a string (cannot be AI) or the same as player1       |
+> |  id        |  required | string                  | ID of the game you want to join. |
+> |  username  |  required | string                  | Your username as a string (cannot be AI) or the same as player1       |
 
 ##### Responses
 
@@ -148,22 +138,23 @@ None
 > | `400`         | `application/json`                            | `{ error: string }` (bad request error)                           |
 ##### Example body
 
-```Javascript
-
-{
-    "player2": "rechtsboven"
-}
-```
+None
 
 </details>
 
 
 #### 
 
+
+<!-- Game Actions --> 
+
 #### GAME ACTIONS
 
+
+
+
 <details>
- <summary><code>POST</code> <code><b>/game/{id}/boards/{username}</b></code> <code>Submit your zeeslag board to the game</code></summary>
+ <summary><code>POST</code> <code><b>/game/:id/boards/:username</b></code> <code>Submit your zeeslag board to the game</code></summary>
 
 
 ##### Parameters
@@ -202,11 +193,11 @@ None
 </details>
 
 <details>
- <summary><code>GET</code> <code><b>/game/{id}/board/{username}</b></code> <code>Get your own board from the game</code></summary>
+ <summary><code>GET</code> <code><b>/game/:id/board/:username</b></code> <code>Get your own board from the game</code></summary>
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/game/{id}/player/{username}/shot</b></code> <code>Adds a shot from a player on a specific coördinate </code></summary>
+ <summary><code>POST</code> <code><b>/game/:id/player/:username/shot</b></code> <code>Adds a shot from a player on a specific coördinate </code></summary>
 
 
 ##### Parameters
