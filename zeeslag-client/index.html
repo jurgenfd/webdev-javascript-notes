@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeeslag Client</title>
-    <link rel="stylesheet" href="/style.css">
-    <script type="module" src="/app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
+
 <body>
 
     <div class="container">
-        <header>
-            <h1>Zeeslag</h1>
 
-            <nav>
-                <ul>
-                    <li><a href="#" id="nav_games">Games</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Latest game</a></li>
-                </ul>
-            </nav>
-        </header>
-    
-        <main>
-    
-            <section id="main-content">
-                <h1>Loading...</h1>
-    
-            </section>
-    
-            <aside id="sidebar">
-                <h1>Loading...</h1>
-            </aside>
-    
-        </main>
+        <h1>Zeeslag</h1>
+
+        <p>Short example on how to play a Zeeslag game. This example does not contain a correct interface but examples
+            of the API calls. </p>
+
+        <h3>Step 1: Create game</h3>
+        <div class="container-steps">
+            <div class="action">
+                <button id="step1_action">Create new game</button>
+                <pre id="step1_body">
+
+                </pre>
+            </div>
+            <div class="result">
+                <pre id="step1_result">
+
+                </pre>
+            </div>
+        </div>
+
+        <h3>Step 2: Get all games</h3>
+        <div class="container-steps">
+            <div class="action">
+                <button id="step2_action">Get all games</button>
+                <pre id="step1_body">
+
+                </pre>
+            </div>
+            <div class="result">
+                <pre id="step2_result">
+
+                </pre>
+            </div>
+        </div>
+
+
     </div>
-    
 </body>
+
 </html>
