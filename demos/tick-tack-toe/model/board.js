@@ -11,6 +11,7 @@ export class Board {
         this.element = document.createElement('div');
         this.element.className = 'board';
 
+        // Mooier? CSS Variabelen 
         let style_grid_width = `repeat(${width}, 1fr)`;
         let style_grid_height = `repeat(${height}, 1fr)`;
 

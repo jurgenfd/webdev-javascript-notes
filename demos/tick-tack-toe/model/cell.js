@@ -11,8 +11,11 @@ export class Cell
 
         this.element.addEventListener('dragover', (event) => {
             var text = event.dataTransfer.getData("text");
-            if(text != 'X' && text != 'O')
+            debugger;
+            if(text == 'X' || text == 'O') //clasic bug!
                 event.preventDefault();
+            else
+                return;
         });
 
         this.element.addEventListener('drop', (event) => {

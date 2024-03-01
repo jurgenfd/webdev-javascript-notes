@@ -2,7 +2,40 @@
 
 Notes and demo's (and api)
 
+## Voor vandaag
+
+13:00 13:45 - Theortisch intro
+14:00 14:25 - Iets mee bouwen
+14:35 15:00
+15:10 - 16:00 - Lekker bouwen
+
+# Promises
+
+- https://javascript.info/promise-basics
+
+
+
 ## Planning
+
+Intentarisatie
+- Callbacks! <--KOMT zeker aan bod
+    -   SCOPING
+
+Recap:
+- DRAG&DRop <- optioneel 
+- CSS GRid
+
+
+Week 4
+- Fetch API (en promises)
+- Data opslag
+- Scope ICM data in elementen opslaan
+- Modules & Strict 
+- Event propogation
+- Overerving
+-  (var kapot, let werkt)
+- optioneel: prototype
+- optioneel: custom components
 
 Week 3
 
@@ -12,10 +45,7 @@ Week 3
 - Klassen, functies en objecten
 - Eindopdracht
 
-Week 4
-- Overerving
-- prototype
-- custom components
+
 
 ## Voorbereiding :pencil:
 
