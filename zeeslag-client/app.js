@@ -73,7 +73,6 @@ async function DemoZeeslag() {
             response = await send_post(`${host}/game/${gameId}/player/linksonder/shot`, { x, y })
             let shoot_result = await response.json();
             counter++;
-            console.log(`Shoot result ${counter}: ${x}, ${y}`)
             if(shoot_result.winner) {
                 console.log("We won!");
                 x = 10; y = 10; //to finish game

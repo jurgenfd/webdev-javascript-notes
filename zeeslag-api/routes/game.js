@@ -80,15 +80,14 @@ router.post('/game', async function(req, res, next) {
 
 })
 
-router.delete('/player/:username/game/:gameId', async function(req, res, next) {
+router.delete('/game/:gameId', async function(req, res, next) {
 
-    const username = req.params.username;
     const id = req.params.gameId;
 
     //find game
     const game = await Game.findById(id);
 
-    if (!game || game.player1 !== username)
+    if (!game)
     {
         return res.status(404).json({ message: 'game not found' });
     }
