@@ -120,14 +120,13 @@ None
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/game/:id/join/:username</b></code> <code>Attempt to join a game that already excists</code></summary>
+ <summary><code>POST</code> <code><b>/game/:id/players</b></code> <code>Attempt to join a game that already excists by adding yourself to the player list.</code></summary>
 
 ##### Parameters
 
 > | name      |  type     | data type               | description                                                           |
 > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
 > |  id        |  required | string                  | ID of the game you want to join. |
-> |  username  |  required | string                  | Your username as a string (cannot be AI) or the same as player1       |
 
 ##### Responses
 
@@ -138,7 +137,11 @@ None
 > | `400`         | `application/json`                            | `{ error: string }` (bad request error)                           |
 ##### Example body
 
-None
+```Javascript
+{
+    "player2": "Rechtsbooven",
+}
+```
 
 </details>
 
