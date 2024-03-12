@@ -221,8 +221,31 @@ router.post('/game/:id/player/:username/shot', async function(req, res, next) {
         //if player 2 is AI, make a random shot
         if(game.currentPlayer == 'AI' )
         {
-            //for now AI always shoots in 0,0
-            let shot  = { x: 0, y: 0 };
+            //calculate all possible shots
+            let width = game.boardWidth;
+            let height = game.boardHeight;
+            let possibleShots = [];
+            for (let y = 0; y < height; y++)
+            {
+                for (let x = 0; x < width; x++)
+                {
+                    if(board[y][x] === '0')
+                    {
+                        possibleShots.push({ x, y });
+                    }
+                }
+            }
+
+            //remove old shots
+            for (let shot of game.player2Shots)
+            {
+                possibleShots = possibleShots.filter(s => s.x !== shot.x || s.y !== shot.y);
+            }
+
+            //random shot
+            let index = Math.floor(Math.random() * possibleShots.length);
+            let shot = possibleShots[index];
+
             game.player2Shots.push(shot);
             game.currentPlayer = game.player1;
         }
