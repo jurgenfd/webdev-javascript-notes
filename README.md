@@ -2,6 +2,10 @@
 
 Notes and demo's (and api)
 
+JFD: 
+Stolen from Stijn Smulders at: https://github.com/avans-webdev/webdev-javascript-notes
+to: https://github.com/jurgenfd/webdev-javascript-notes
+
 ## Voor vandaag
 
 13:00 13:45 - Theortisch intro
